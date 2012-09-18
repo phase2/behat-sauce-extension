@@ -20,11 +20,15 @@ class JenkinsPluginPass implements CompilerPassInterface
     {
         if (getenv('SAUCE_USER_NAME')) {
           // Construct and set wd_host.
+          // TODO: SELENIUM_HOST AND SELENIUM_PORT get set to the values for the
+          // Sauce-Connect proxy, which doesn't work when running the job on a
+          // slave, and the slave cannot access Sauce-Connect on the Jenkins
+          // Master.  Ultimately, there should be an option to send commands
+          // through Sauce-Connect or directly to Sauce Selenium server.
           $container->setParameter('behat.mink.selenium2.wd_host', sprintf("http://%s:%s@%s:%d/wd/hub",
             getenv('SAUCE_USER_NAME'),
             getenv('SAUCE_API_KEY'),
-            getenv('SELENIUM_HOST'),
-            getenv('SELENIUM_PORT')));
+            'ondemand.saucelabs.com', 80));
 
           // Set the browser name.
           $container->setParameter('behat.mink.selenium2.browser', getenv('SELENIUM_BROWSER'));
