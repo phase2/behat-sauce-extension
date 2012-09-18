@@ -18,7 +18,7 @@ class JenkinsPluginPass implements CompilerPassInterface
      */
     public function process(ContainerBuilder $container)
     {
-        if (getenv('SAUCE_USER_NAME'))) {
+        if (getenv('SAUCE_USER_NAME')) {
           // Construct and set wd_host.
           $container->setParameter('behat.mink.selenium2.wd_host', sprintf("http://%s:%s@%s:%d/wd/hub",
             getenv('SAUCE_USER_NAME'),
