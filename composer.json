@@ -1,0 +1,16 @@
+{
+    "name": "phase2/behat-sauce-extension",
+    "description": "Simplifies usage of Sauce Labs from Behat.",
+    "require": {
+        "behat/behat": "v2.4.0"
+    },
+    "authors": [
+        {
+            "name": "Roger López",
+            "email": "rlopez@phase2technology.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "Phase2\\Behat\\SauceExtension": "src/" }
+    }
+}
