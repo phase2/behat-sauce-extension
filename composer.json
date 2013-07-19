@@ -2,7 +2,7 @@
     "name": "phase2/behat-sauce-extension",
     "description": "Simplifies usage of Sauce Labs from Behat.",
     "require": {
-        "behat/behat": "v2.4@stable"
+        "behat/behat": ">=2.4.3, <2.5.0"
     },
     "authors": [
         {
