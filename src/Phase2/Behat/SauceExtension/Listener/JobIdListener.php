@@ -51,7 +51,7 @@ class JobIdListener implements EventSubscriberInterface
         $context = $event->getContext();
 
         if (empty($this->job_id)) {
-          $url = $context->getSession()->getDriver()->wdSession->getUrl();
+          $url = $context->getSession()->getDriver()->getWebDriverSession()->getUrl();
           $parts = explode('/', $url);
           $this->job_id = array_pop($parts);
 
